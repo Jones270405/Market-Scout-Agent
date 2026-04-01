@@ -1,0 +1,71 @@
+[
+  {
+    "company": "Stripe",
+    "run_date": "2026-04-01 09:36",
+    "features": [
+      {
+        "feature": "Our top product updates from Sessions 2025 - Stripe",
+        "category": "Integration",
+        "date": "Wed, 07 May 2025 07:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://stripe.com/blog/top-product-updates-sessions-2025",
+        "snippet": "You can now use sandboxes to test functionality and experiment with new features in an isolated environment that replicates your business, without impacting your live integration."
+      },
+      {
+        "feature": "Stripe publishes 2025 annual letter and announces tender offer to ...",
+        "category": "Integration",
+        "date": "Tue, 24 Feb 2026 08:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://stripe.com/newsroom/news/stripe-2025-update",
+        "snippet": "Stripe launched an Agentic Commerce Suite, which provides tooling for businesses to sell across multiple AI interfaces and protocols with a single integration. Brands already onboarding include Anthropologie, Urban Outfitters, Etsy, Coach, and Kate Spade."
+      },
+      {
+        "feature": "Stripe Valuation Hits $159B in 2025 Update \u2013 Tech Finance News",
+        "category": "Product",
+        "date": "Tue, 24 Feb 2026 18:01:20 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://ubos.tech/news/stripe-valuation-hits-159b-in-2025-update-tech-finance-news/",
+        "snippet": "## How UBOS Helps You Leverage Stripe\u2019s New Capabilities"
+      },
+      {
+        "feature": "Stripe launches new products to drive stablecoins and agentic ...",
+        "category": "Product",
+        "date": "Tue, 30 Sep 2025 15:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://stripe.com/newsroom/news/tour-newyork-2025",
+        "snippet": "NEW YORK\u2014Today, programmable financial services company Stripe announced new products to help businesses take advantage of AI and stablecoins to grow their revenue. The updates were part of Stripe Tour New York, the company\u2019s annual product showcase in NYC, with over 40 new products and features lau"
+      },
+      {
+        "feature": "How to Use Stripe API Solutions - Koombea",
+        "category": "API",
+        "date": "Wed, 16 Aug 2023 21:45:24 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.koombea.com/blog/how-to-use-stripe-api/",
+        "snippet": "This post will explain the Stripe API, how it works, and how your business can complete Stripe integration using the API."
+      },
+      {
+        "feature": "Native Stripe Integration Guide for Mobile Apps | HubiFi",
+        "category": "API",
+        "date": "Mon, 19 Jan 2026 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.hubifi.com/blog/native-stripe-integration-guide",
+        "snippet": "### First, Get Your Stripe Account and API Keys"
+      },
+      {
+        "feature": "Set up your integration - Stripe Documentation",
+        "category": "API",
+        "date": "unknown",
+        "status": "UNVERIFIED",
+        "url": "https://docs.stripe.com/terminal/payments/setup-integration",
+        "snippet": "Server-driven integrations use the Stripe API instead of a Terminal SDK to connect to WisePOS E, Stripe Reader S700/S710, and Verifone smart readers and collect in-person payments. This allows you to:"
+      }
+    ],
+    "summary": {
+      "total": 7,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 7
+    }
+  }
+]
