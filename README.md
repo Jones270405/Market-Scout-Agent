@@ -90,7 +90,7 @@ After each run, the following files are created/updated in the working directory
 | 🟢 Green | WEEK | Published in last 7 days |
 | 🟡 Yellow | MONTH | Published in last 30 days |
 | 🔵 Blue | YEAR | Published in last 365 days |
-| ⚪ Grey | UNVERIFIED | Date unknown |
+| ⚪ Grey | OTHER SOURCES | Date unknown |
 | 🔴 Red | STALE | Older than 1 year |
 
 ## Guardrails
