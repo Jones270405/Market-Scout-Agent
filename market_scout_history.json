@@ -67,5 +67,271 @@
       "year": 0,
       "unver": 7
     }
+  },
+  {
+    "company": "Track Stripe",
+    "run_date": "2026-04-08 14:21",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Tesla",
+    "run_date": "2026-04-08 14:31",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Nike latest features",
+    "run_date": "2026-04-08 14:34",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "OpenAI",
+    "run_date": "2026-04-08 17:42",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Stripe",
+    "run_date": "2026-04-08 20:22",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Tesla",
+    "run_date": "2026-04-08 20:40",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Stripe",
+    "run_date": "2026-04-08 20:56",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Nike",
+    "run_date": "2026-04-08 21:10",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Stripe",
+    "run_date": "2026-04-08 21:20",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Tesla",
+    "run_date": "2026-04-08 21:23",
+    "features": [],
+    "summary": {
+      "total": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 0
+    }
+  },
+  {
+    "company": "Stripe",
+    "run_date": "2026-04-08 21:55",
+    "features": [
+      {
+        "feature": "Our top product updates from Sessions 2025 - Stripe",
+        "category": "Product",
+        "date": "Wed, 07 May 2025 07:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://stripe.com/blog/top-product-updates-sessions-2025",
+        "snippet": "We previewed new money management features that are built into the Stripe Dashboard, allowing businesses in the US and UK to store and manage money in multiple currencies and convert between them, send and receive money via local rails, and create virtual and physical cards."
+      },
+      {
+        "feature": "Stripe publishes 2025 annual letter and announces tender offer to ...",
+        "category": "Integration",
+        "date": "Tue, 24 Feb 2026 08:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://stripe.com/newsroom/news/stripe-2025-update",
+        "snippet": "Stripe launched an Agentic Commerce Suite, which provides tooling for businesses to sell across multiple AI interfaces and protocols with a single integration. Brands already onboarding include Anthropologie, Urban Outfitters, Etsy, Coach, and Kate Spade."
+      },
+      {
+        "feature": "[PDF] Stripe-annual-letter-2025-desktop.pdf",
+        "category": "Product",
+        "date": "Thu, 26 Feb 2026 10:39:32 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://assets.stripeassets.com/fzn2n1nzq965/3LlGw839Q6kUwxZlLZDtH6/75ddcbada4aa7743dd8ec7d0f9ca497e/Stripe-annual-letter-2025-desktop.pdf",
+        "snippet": "This growth has been catalyzed by a profusion of new capabilities. A Y Combinator founder can now receive funding in stablecoins, hold them in a Stripe financial account, and use them to pay their first engineers, who could be anywhere in the world. SaaS platforms are using stablecoins to collect re"
+      },
+      {
+        "feature": "All our product updates from Stripe Tour New York",
+        "category": "Product",
+        "date": "Tue, 30 Sep 2025 07:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://stripe.com/blog/all-our-product-updates-from-stripe-tour-new-york",
+        "snippet": "We announced that you will soon be able to launch your own custom stablecoin with Open Issuance from Bridge. You\u2019ll be able to maximize rewards by choosing the allocation of reserves managed by BlackRock, Fidelity Investments, Superstate, and others. You will also be able to make your stablecoin int"
+      },
+      {
+        "feature": "Send your first Stripe API request",
+        "category": "Product",
+        "date": "Wed, 05 Jun 2024 16:25:45 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://docs.stripe.com/get-started/api-request",
+        "snippet": "| Live mode publishable key | When you\u2019re ready to launch your app, use this key in your web or mobile app\u2019s client-side code. | [...] ## Before you begin"
+      },
+      {
+        "feature": "How to Integrate with Stripe API: A Step-by-Step Guide for Developers",
+        "category": "Integration",
+        "date": "Mon, 09 Mar 2026 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://unified.to/blog/how_to_integrate_with_stripe_api_a_step_by_step_guide_for_developers",
+        "snippet": "But a production-grade Stripe integration involves more than sending a payment request. You need to design for idempotency, retries, pagination, webhook reliability, and multi-account platforms like Stripe Connect."
+      },
+      {
+        "feature": "Tour of the API - Stripe Documentation",
+        "category": "API",
+        "date": "Sat, 30 Mar 2024 03:24:42 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://docs.stripe.com/payments-api/tour",
+        "snippet": "When the customer clicks Pay or otherwise confirms their intent, an integration notifies Stripe with an API call. In some integrations, you write the code that makes this call. Stripe provides drop-in UI elements, called Stripe Elements, to enable this while still providing flexibility to build a cu"
+      },
+      {
+        "feature": "Quickstart guides - Stripe Documentation",
+        "category": "Integration",
+        "date": "Fri, 03 Oct 2025 05:26:40 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://docs.stripe.com/quickstarts",
+        "snippet": "This page contains a list of all Stripe integration quickstart guides. These guides include:"
+      }
+    ],
+    "summary": {
+      "total": 8,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 8
+    }
+  },
+  {
+    "company": "Tesla",
+    "run_date": "2026-04-08 22:00",
+    "features": [
+      {
+        "feature": "Tesla Model 3: 2025 Vs. 2024 - What's New?",
+        "category": "Integration",
+        "date": "Mon, 05 Jan 2026 21:08:07 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://giftsandentertainment.roche.com/open-outlook/tesla-model-3-2025-vs-2024-whats-new-1767647287",
+        "snippet": "Tesla is also constantly working on improving its software. The 2025 model could come with the latest version of Tesla\u2019s software, which would include new features, improved performance, and enhanced functionality. They might even add new apps or integration with other services, like enhanced voice"
+      },
+      {
+        "feature": "Tesla's latest software has some great new features",
+        "category": "Product",
+        "date": "Tue, 08 Apr 2025 16:30:05 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.reddit.com/r/electricvehicles/comments/1hafpa4/teslas_latest_software_has_some_great_new/",
+        "snippet": "Tesla\u2019s latest software has some great new features - Dec 2024 v 2024.44.25.2 : r/electricvehicles"
+      },
+      {
+        "feature": "Tesla Unveils Exciting Features in 2025 Holiday Update ...",
+        "category": "Product",
+        "date": "Sun, 07 Dec 2025 06:31:55 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.tesery.com/blogs/news/tesla-unveils-exciting-features-in-2025-holiday-update-but-some-expectations-are-unmet",
+        "snippet": "## What\u2019s Included in the Update"
+      },
+      {
+        "feature": "Tesla 2026.8 Software Update Spotted: What We Know So Far",
+        "category": "Product",
+        "date": "Thu, 12 Mar 2026 23:07:14 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.basenor.com/blogs/news/tesla-update-2026-8?srsltid=AfmBOoohs6TiN8uWWnBy2wS0ZWlPY8nWniZPo55TrsCs5CCQkc4a3Xmg",
+        "snippet": "### \ud83d\udccc UPDATE \u2014 March 18, 2026"
+      },
+      {
+        "feature": "Tesla launches official API documentation to support third-party apps",
+        "category": "API",
+        "date": "Mon, 16 Oct 2023 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://m.economictimes.com/tech/technology/tesla-launches-official-api-documentation-to-support-3rd-party-apps/articleshow/104464861.cms",
+        "snippet": "Electric car company Tesla has released official application programming interface (API) documentation to support third-party apps."
+      },
+      {
+        "feature": "Announcements | Tesla Fleet API",
+        "category": "API",
+        "date": "Fri, 12 Dec 2025 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://developer.tesla.com/docs/fleet-api/announcements",
+        "snippet": "## 2025-01-22: New Fleet API Support Help Center"
+      },
+      {
+        "feature": "Tesla releases official API documentation to support third-party apps",
+        "category": "API",
+        "date": "Thu, 12 Oct 2023 12:42:46 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://electrek.co/2023/10/12/tesla-releases-official-api-documentation-support-third-party-apps/",
+        "snippet": "The automaker has now officially released API documentation \u2013 marking an important step toward creating a healthier third-party app community."
+      }
+    ],
+    "summary": {
+      "total": 7,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 7
+    }
   }
 ]

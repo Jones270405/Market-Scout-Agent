@@ -1,0 +1,12 @@
+[project]
+name = "Market Scout"
+show_readme_as_default = false
+
+[UI]
+name = "Market Scout"
+description = "Competitive Intelligence Assistant — track competitor features in real time."
+default_collapse_content = true
+default_theme = "light"
+
+[meta]
+generated_by = "1.0.0"

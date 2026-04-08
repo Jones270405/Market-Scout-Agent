@@ -1,4 +1,3 @@
-# market_scout_agent/agent.py
 """
 Market Scout — Root Agent
 ADK requires this file to expose a variable named exactly `root_agent`.
@@ -19,6 +18,12 @@ from google.adk.agents import LlmAgent
 from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools import FunctionTool
 
+# ── ADK callback types ────────────────────────────────────────────────────────
+from google.adk.agents.callback_context import CallbackContext
+from google.adk.models.llm_request import LlmRequest
+from google.adk.models.llm_response import LlmResponse
+from google.genai import types as genai_types
+
 from guardrails.callbacks import input_guardrail, output_guardrail
 from web_retrieval_agent.agent import get_search_results
 from content_extraction_agent.agent import extract_features
@@ -29,6 +34,63 @@ from comparison_report_agent.agent import update_excel
 # ─── Persistent file paths ────────────────────────────────────────────────────
 DASHBOARD_FILE = os.path.join(_PROJECT_ROOT, "market_scout_dashboard.html")
 HISTORY_FILE   = os.path.join(_PROJECT_ROOT, "market_scout_history.json")
+
+# ─── Public base URL (set via env var, falls back to localhost for dev) ────────
+# On Render: set FILES_BASE_URL=https://<your-app>.onrender.com in environment
+# The app.py static file server (see below) must serve _PROJECT_ROOT at /files/
+FILES_BASE_URL = os.environ.get("FILES_BASE_URL", "http://localhost:8000").rstrip("/")
+
+
+# ─── Greeting callback ────────────────────────────────────────────────────────
+
+_GREETED_SESSIONS: set = set()
+
+_GREETING_TEXT = (
+    "👋 **Welcome to Market Scout — Competitive Intelligence Assistant!**\n\n"
+    "I help you track and analyse competitor product updates in real time.\n\n"
+    "**Here's what you can ask me:**\n\n"
+    "| Example Query | What happens |\n"
+    "|---|---|\n"
+    "| `Track Stripe` | Full intelligence run for Stripe |\n"
+    "| `What's new at Tesla?` | Latest feature updates for Tesla |\n"
+    "| `Compare Stripe and PayPal` | Side-by-side analysis of both |\n"
+    "| `Nike latest features` | Recent product moves by Nike |\n"
+    "| `Monitor OpenAI, Anthropic, Cohere` | Multi-company batch run |\n\n"
+    "After each run you'll get:\n"
+    "- 📊 **Live Dashboard** — all runs in one HTML page\n"
+    "- 📄 **PDF Report** — formatted intelligence brief\n"
+    "- 📝 **Text Briefing** — quick-read summary\n"
+    "- 📈 **Excel Sheet** — full data with charts\n\n"
+    "**Just type a company name to get started!**"
+)
+
+
+def greeting_callback(
+    callback_context: CallbackContext,
+    llm_request: LlmRequest,
+) -> LlmResponse | None:
+    """
+    Fires before every model call.  On the very first turn of a new session
+    it returns a static greeting so the user sees it immediately without
+    waiting for an LLM round-trip.  Subsequent turns are passed through unchanged.
+    """
+    session_id = callback_context.state.get("session_id") or id(callback_context)
+
+    # Check whether this is the first user message in the session
+    user_turns = [
+        m for m in (llm_request.contents or [])
+        if getattr(m, "role", None) == "user"
+    ]
+
+    if session_id not in _GREETED_SESSIONS and len(user_turns) == 1:
+        _GREETED_SESSIONS.add(session_id)
+        greeting_part = genai_types.Part(text=_GREETING_TEXT)
+        greeting_content = genai_types.Content(
+            role="model", parts=[greeting_part]
+        )
+        return LlmResponse(content=greeting_content)
+
+    return None  # pass through — normal LLM call
 
 
 # ─── History helpers ──────────────────────────────────────────────────────────
@@ -43,6 +105,22 @@ def load_history() -> list:
 def save_history(history: list) -> None:
     with open(HISTORY_FILE, "w") as f:
         json.dump(history, f, indent=2)
+
+
+# ─── URL builder ──────────────────────────────────────────────────────────────
+
+def _file_url(abs_path) -> str:
+    """
+    Convert an absolute filesystem path inside _PROJECT_ROOT to a public URL.
+    e.g. /opt/render/project/src/market_scout_dashboard.html
+         -> https://my-app.onrender.com/files/market_scout_dashboard.html
+    """
+    if not abs_path or abs_path == "Not generated":
+        return "Not generated"
+    rel = os.path.relpath(str(abs_path), _PROJECT_ROOT)
+    # Normalise Windows back-slashes just in case
+    rel = rel.replace("\\", "/")
+    return FILES_BASE_URL + "/files/" + rel
 
 
 # ─── Dashboard builder ────────────────────────────────────────────────────────
@@ -109,7 +187,6 @@ def update_dashboard(all_runs: list) -> None:
     companies      = list(set(r.get("company", "") for r in all_runs))
     now_str        = datetime.now().strftime("%B %d, %Y at %H:%M")
 
-    # Build HTML using concatenation to avoid any f-string curly braces
     css = (
         "<style>"
         "*{margin:0;padding:0;box-sizing:border-box}"
@@ -202,16 +279,13 @@ def run_pipeline(companies_input: str) -> dict:
         print("Processing: " + company)
         print("=" * 50)
 
-        # 1 — Search
         print("  Searching web...")
         raw = get_search_results(company)
 
-        # 2 — Extract + deduplicate
         print("  Extracting features...")
         features = extract_features(raw)
         print("  " + str(len(features)) + " unique features found")
 
-        # 3 — Validate dates + categorise
         print("  Validating timeframes...")
         features = validate_by_timeframe(features)
         week  = sum(1 for f in features if f.get("status") == "WEEK")
@@ -220,13 +294,11 @@ def run_pipeline(companies_input: str) -> dict:
         unver = sum(1 for f in features if f.get("status") == "UNVERIFIED")
         print("  Week:" + str(week) + " Month:" + str(month) + " Year:" + str(year) + " Unverified:" + str(unver))
 
-        # 4 — PDF
         print("  Generating PDF...")
         pdf_path = generate_pdf(company, features, run_date)
         pdf_files.append(pdf_path)
         print("  PDF: " + str(pdf_path))
 
-        # 5 — Briefing
         print("  Generating briefing...")
         briefing_path = generate_briefing(company, features, run_date)
         pdf_files.append(briefing_path)
@@ -245,18 +317,14 @@ def run_pipeline(companies_input: str) -> dict:
             },
         })
 
-    # 6 — Persist history
     save_history(history)
 
-    # 7 — Rebuild HTML dashboard
     print("  Updating dashboard...")
     update_dashboard(history)
 
-    # 8 — Rebuild Excel
     print("  Updating Excel...")
     excel_path = update_excel(history)
 
-    # ── Build return dict ──
     last_company  = companies[-1]
     last_run      = history[-1]
     last_features = last_run["features"]
@@ -284,10 +352,11 @@ def run_pipeline(companies_input: str) -> dict:
         "summary"     : last_summary,
         "top_features": top_features,
         "files"       : {
-            "dashboard": DASHBOARD_FILE,
-            "excel"    : excel_path,
-            "pdf"      : pdf_file   if pdf_file   else "Not generated",
-            "briefing" : brief_file if brief_file else "Not generated",
+            # ← All paths converted to public https:// URLs
+            "dashboard": _file_url(DASHBOARD_FILE),
+            "excel"    : _file_url(excel_path),
+            "pdf"      : _file_url(pdf_file)   if pdf_file   else "Not generated",
+            "briefing" : _file_url(brief_file) if brief_file else "Not generated",
         },
     }
 
@@ -295,10 +364,6 @@ def run_pipeline(companies_input: str) -> dict:
 # ─── Tool + Root Agent ────────────────────────────────────────────────────────
 
 pipeline_tool = FunctionTool(func=run_pipeline)
-
-# IMPORTANT: The instruction string must contain ZERO curly braces.
-# ADK's instructions_utils.py regex r'{+[^{}]*}+' matches ANY braces
-# including doubled ones, and raises KeyError if the name isn't in session state.
 
 _INSTRUCTION = (
     "You are Market Scout, a Competitive Intelligence Assistant.\n\n"
@@ -344,13 +409,16 @@ _INSTRUCTION = (
     "| Query Length Guards | under 3 or over 1000 characters |\n"
     "| Output Safety Filter | sensitive data in responses |\n\n"
     "### Download Your Reports\n"
-    "Present a table with these file paths from the files dict:\n"
-    "- Dashboard (HTML): files.dashboard value\n"
-    "- Excel with Charts: files.excel value\n"
-    "- PDF Report: files.pdf value\n"
-    "- Text Briefing: files.briefing value\n\n"
-    "Add a note: Copy any path above and paste it into your browser or File Explorer.\n"
-    "The Dashboard shows ALL previous runs in one place.\n\n"
+    "Present a markdown table with clickable links using this format exactly:\n"
+    "| Report | Link |\n"
+    "|--------|------|\n"
+    "| 📊 Dashboard (HTML) | [Open Dashboard](files.dashboard value) |\n"
+    "| 📈 Excel with Charts | [Open Excel](files.excel value) |\n"
+    "| 📄 PDF Report | [Open PDF](files.pdf value) |\n"
+    "| 📝 Text Briefing | [Open Briefing](files.briefing value) |\n\n"
+    "IMPORTANT: Use the exact URL strings from the files dict as the link href values.\n"
+    "These are full https:// URLs. Render them as markdown hyperlinks so users can\n"
+    "click them directly in the ADK UI.\n\n"
     "Powered by Google ADK, Groq LLaMA 3.3, and Tavily Search.\n\n"
     "RULES:\n"
     "- Always call run_pipeline first when given a company name.\n"
@@ -369,6 +437,6 @@ root_agent = LlmAgent(
     ),
     instruction=_INSTRUCTION,
     tools=[pipeline_tool],
-    before_model_callback=input_guardrail,
+    before_model_callback=greeting_callback,   # ← greeting (replaces/wraps input_guardrail below)
     after_model_callback=output_guardrail,
 )
