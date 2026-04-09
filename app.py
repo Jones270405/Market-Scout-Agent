@@ -1,235 +1,45 @@
-"""
-cl_app.py — Chainlit chat logic (mounted into FastAPI via app.py)
-"""
+import os, subprocess, threading, time, httpx, uvicorn
+from fastapi import FastAPI, Request
+from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 
-import os
-import re
-import sys
-from pathlib import Path
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+FILES_DIR = os.path.join(PROJECT_ROOT, "output_files")
+os.makedirs(FILES_DIR, exist_ok=True)
+open(os.path.join(FILES_DIR, ".keep"), "a").close()
 
-import chainlit as cl
+PORT     = int(os.environ.get("PORT", 8000))
+ADK_PORT = 8001
 
-_HERE = Path(__file__).resolve().parent
-if str(_HERE) not in sys.path:
-    sys.path.insert(0, str(_HERE))
+app = FastAPI()
+app.mount("/files", StaticFiles(directory=FILES_DIR, html=True), name="files")
 
-from market_scout_agent.agent import run_pipeline
+@app.get("/health")
+async def health(): return {"ok": True}
 
-# ── Base URL for file links ───────────────────────────────────────────────────
-# Set FILES_BASE_URL=https://<your-app>.onrender.com in Render environment vars.
-# Falls back to localhost for local dev.
-FILES_BASE_URL = os.environ.get("FILES_BASE_URL", "http://localhost:8000").rstrip("/")
-
-
-# ── Company extractor ─────────────────────────────────────────────────────────
-
-_FILLER = re.compile(
-    r"^\s*("
-    r"track|monitor|analyse|analyze|research|check|look\s+up|get\s+updates?\s+for|"
-    r"what\s*['\u2019]?s\s+new\s+(at|for|with)|latest\s+features?\s*(of|for|from)?|"
-    r"compare|tell\s+me\s+about|show\s+me|find\s+updates?\s*(on|for)?|"
-    r"recent\s+updates?\s*(on|for)?|recent\s+features?\s*(of|for)?"
-    r")\s+",
-    re.IGNORECASE,
-)
-_TRAILING = re.compile(
-    r"\s*(latest\s+features?|recent\s+updates?|updates?|features?|news|info|information)\s*$",
-    re.IGNORECASE,
-)
-
-def _extract_companies(query: str) -> str:
-    cleaned = query.strip().rstrip("?.,!")
-    cleaned = _FILLER.sub("", cleaned).strip()
-    cleaned = _TRAILING.sub("", cleaned).strip()
-    cleaned = re.sub(r"\s+and\s+", ", ", cleaned, flags=re.IGNORECASE)
-    return cleaned if cleaned else query
-
-
-# ── File path → public URL ────────────────────────────────────────────────────
-
-def _to_url(abs_path) -> str:
-    if not abs_path or str(abs_path) == "Not generated":
-        return ""
-    rel = os.path.relpath(str(abs_path), str(_HERE)).replace("\\", "/")
-    return f"{FILES_BASE_URL}/files/{rel}"
-
-
-# ── Guardrails ────────────────────────────────────────────────────────────────
-
-OUT_OF_SCOPE = {"recipe", "weather", "homework", "poem", "joke", "song", "sport", "movie", "game", "politics"}
-HARMFUL      = {"hack", "exploit", "malware", "illegal", "jailbreak", "ignore instructions", "act as"}
-
-
-# ── Greeting ──────────────────────────────────────────────────────────────────
-
-GREETING = """\
-👋 **Welcome to Market Scout — Competitive Intelligence Assistant!**
-
-I help you track and analyse competitor product updates in real time.
-
-**Here's what you can ask me:**
-
-| Example Query | What happens |
-|---|---|
-| `Stripe` | Full intelligence run for Stripe |
-| `Tesla` | Latest feature updates for Tesla |
-| `Stripe, PayPal` | Side-by-side analysis of both |
-| `Nike` | Recent product moves by Nike |
-| `OpenAI, Anthropic` | Multi-company batch run |
-
-After each run you'll get clickable links for:
-📊 Dashboard · 📄 PDF · 📝 Briefing · 📈 Excel
-
-**Just type a company name to get started!**
-"""
-
-
-# ── Report builder ────────────────────────────────────────────────────────────
-
-def _build_report(result: dict, base_url: str) -> str:
-    company  = result.get("company", "")
-    run_date = result.get("run_date", "")
-    version  = result.get("version", "")
-    summary  = result.get("summary", {})
-    top_feat = result.get("top_features", [])
-    files    = result.get("files", {})
-
-    summary_rows = (
-        f"| Total Features | {summary.get('total', 0)} |\n"
-        f"| Last 7 Days (WEEK) | {summary.get('week', 0)} |\n"
-        f"| Last 30 Days (MONTH) | {summary.get('month', 0)} |\n"
-        f"| Last 365 Days (YEAR) | {summary.get('year', 0)} |\n"
-        f"| Other sources | {summary.get('unver', 0)} |"
-    )
-
-    if top_feat:
-        feat_lines = []
-        for i, f in enumerate(top_feat, 1):
-            src    = f.get("url", "")
-            src_md = f"[View Source]({src})" if src else "N/A"
-            feat_lines.append(
-                f"{i}. **{f.get('feature', '')}**\n"
-                f"   - Category: {f.get('category', '')}\n"
-                f"   - Date: {f.get('date', 'unknown')}\n"
-                f"   - Status: `{f.get('status', '')}`\n"
-                f"   - Source: {src_md}"
-            )
-        features_section = "\n\n".join(feat_lines)
-    else:
-        features_section = "_No features found for this company._"
-
-    # Convert stored file paths to public URLs
-    raw_files = result.get("files", {})
-    def _url(key):
-        val = raw_files.get(key, "")
-        # Already a full URL (from agent.py _file_url) — use as-is
-        # If it looks like an absolute path, convert it
-        if val and not val.startswith("http"):
-            val = _to_url(val)
-        return val
-
-    dashboard_url = _url("dashboard")
-    excel_url     = _url("excel")
-    pdf_url       = _url("pdf")
-    briefing_url  = _url("briefing")
-
-    def row(label, url):
-        if url:
-            return f"| {label} | [Click to open]({url}) |"
-        return f"| {label} | _Not generated_ |"
-
-    files_table = "\n".join([
-        row("📊 Dashboard (HTML)", dashboard_url),
-        row("📈 Excel with Charts", excel_url),
-        row("📄 PDF Report",        pdf_url),
-        row("📝 Text Briefing",     briefing_url),
-    ])
-
-    return f"""\
-## 🔍 Market Scout Report
-**Company:** {company}
-**Run Date:** {run_date} | **Version:** {version}
-
----
-
-### 📋 Findings Summary
-
-| Metric | Count |
-|--------|-------|
-{summary_rows}
-
----
-
-### 🏆 Top Features Found
-
-{features_section}
-
----
-
-### 🛡️ Guardrails Active
-
-| Guardrail | Blocks |
-|-----------|--------|
-| Harmful Intent Detection | hack, exploit, malware, illegal |
-| Prompt Injection Guard | jailbreak, act as, ignore instructions |
-| PII Detection | credit cards, SSN, emails, phones |
-| Out-of-Scope Filter | recipes, weather, homework, poems |
-| Query Length Guards | under 3 or over 1000 characters |
-| Output Safety Filter | sensitive data in responses |
-
----
-
-### 📥 Download Your Reports
-
-| Report | Link |
-|--------|------|
-{files_table}
-
-> 💡 Links open the file directly in your browser. If a file downloads instead of opening, right-click → Open in new tab.
-
----
-_Powered by Google ADK · Groq LLaMA 3.3 · Tavily Search_
-"""
-
-
-# ── Chainlit hooks ────────────────────────────────────────────────────────────
-
-@cl.on_chat_start
-async def on_chat_start():
-    await cl.Message(content=GREETING, author="Market Scout").send()
-
-
-@cl.on_message
-async def on_message(message: cl.Message):
-    query = message.content.strip()
-
-    if len(query) < 2:
-        await cl.Message(content="⚠️ Please enter a company name.", author="Market Scout").send()
-        return
-    if len(query) > 1000:
-        await cl.Message(content="⚠️ Query too long (max 1000 chars).", author="Market Scout").send()
-        return
-
-    lower = query.lower()
-
-    if any(w in lower for w in HARMFUL):
-        await cl.Message(content="🚫 I can only help with competitor intelligence.", author="Market Scout").send()
-        return
-    if any(w in lower for w in OUT_OF_SCOPE):
-        await cl.Message(content="🚫 I only track competitor updates. Try: `Stripe`", author="Market Scout").send()
-        return
-
-    companies_input = _extract_companies(query)
-
-    async with cl.Step(name="🔍 Running Market Scout pipeline...") as step:
-        step.output = f"Fetching intelligence for: **{companies_input}**"
+@app.api_route("/{path:path}", methods=["GET","POST","PUT","DELETE","PATCH","OPTIONS","HEAD"])
+async def proxy(request: Request, path: str):
+    url = f"http://127.0.0.1:{ADK_PORT}/{path}"
+    headers = {k:v for k,v in request.headers.items() if k.lower() not in ("host","content-length")}
+    headers["host"] = f"127.0.0.1:{ADK_PORT}"
+    async with httpx.AsyncClient(timeout=120) as c:
         try:
-            result = run_pipeline(companies_input)
-        except Exception as e:
-            await cl.Message(content=f"❌ Pipeline error: {str(e)}", author="Market Scout").send()
-            return
+            r = await c.request(request.method, url, headers=headers,
+                                content=await request.body(),
+                                params=dict(request.query_params),
+                                follow_redirects=False)
+            h = {k:v for k,v in r.headers.items() if k.lower() not in ("transfer-encoding","content-encoding")}
+            if "location" in h:
+                h["location"] = h["location"].replace(f"http://127.0.0.1:{ADK_PORT}","")
+            return StreamingResponse(r.aiter_bytes(), status_code=r.status_code, headers=h)
+        except httpx.ConnectError:
+            return JSONResponse({"error":"ADK starting, retry in seconds"}, status_code=503)
 
-    await cl.Message(
-        content=_build_report(result, FILES_BASE_URL),
-        author="Market Scout",
-    ).send()
+def run_adk():
+    time.sleep(4)
+    subprocess.Popen(["adk","web","market_scout_agent",
+                      "--host","127.0.0.1","--port",str(ADK_PORT)],
+                     cwd=PROJECT_ROOT)
+
+threading.Thread(target=run_adk, daemon=True).start()
+uvicorn.run(app, host="0.0.0.0", port=PORT)

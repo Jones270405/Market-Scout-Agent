@@ -32,14 +32,24 @@ from feature_synthesis_agent.agent import generate_pdf, generate_briefing
 from comparison_report_agent.agent import update_excel
 
 # ─── Persistent file paths ────────────────────────────────────────────────────
-DASHBOARD_FILE = os.path.join(_PROJECT_ROOT, "market_scout_dashboard.html")
-HISTORY_FILE   = os.path.join(_PROJECT_ROOT, "market_scout_history.json")
+# DASHBOARD_FILE = os.path.join(_PROJECT_ROOT, "market_scout_dashboard.html")
+# HISTORY_FILE   = os.path.join(_PROJECT_ROOT, "market_scout_history.json")
+
+#Remove below 4 lines 
+FILES_DIR      = os.path.join(_PROJECT_ROOT, "output_files")
+os.makedirs(FILES_DIR, exist_ok=True)
+
+DASHBOARD_FILE = os.path.join(FILES_DIR, "market_scout_dashboard.html")
+HISTORY_FILE   = os.path.join(FILES_DIR, "market_scout_history.json")
+
 
 # ─── Public base URL (set via env var, falls back to localhost for dev) ────────
 # On Render: set FILES_BASE_URL=https://<your-app>.onrender.com in environment
 # The app.py static file server (see below) must serve _PROJECT_ROOT at /files/
-FILES_BASE_URL = os.environ.get("FILES_BASE_URL", "http://localhost:8000").rstrip("/")
-
+FILES_BASE_URL = os.environ.get(
+    "FILES_BASE_URL",
+    "https://market-scout.onrender.com"
+).rstrip("/")
 
 # ─── Greeting callback ────────────────────────────────────────────────────────
 
@@ -428,6 +438,34 @@ _INSTRUCTION = (
     "- Off-topic requests: respond with 'I only track competitor updates.'\n"
 )
 
+# root_agent = LlmAgent(
+#     name="market_scout_agent",
+#     model=LiteLlm(model="groq/llama-3.1-8b-instant"),
+#     description=(
+#         "Market Scout — Competitive Intelligence System. "
+#         "Tracks competitor features with persistent dashboard, Excel, and PDF reports."
+#     ),
+#     instruction=_INSTRUCTION,
+#     tools=[pipeline_tool],
+#     before_model_callback=greeting_callback,   # ← greeting (replaces/wraps input_guardrail below)
+#     after_model_callback=output_guardrail,
+# )
+
+# Replace the bottom of agent.py:
+
+def combined_before_callback(
+    callback_context: CallbackContext,
+    llm_request: LlmRequest,
+) -> LlmResponse | None:
+    """Runs greeting first, then safety guardrail."""
+    # Try greeting first
+    greeting_result = greeting_callback(callback_context, llm_request)
+    if greeting_result is not None:
+        return greeting_result
+    # Then safety check
+    return input_guardrail(callback_context, llm_request)
+
+
 root_agent = LlmAgent(
     name="market_scout_agent",
     model=LiteLlm(model="groq/llama-3.1-8b-instant"),
@@ -437,6 +475,6 @@ root_agent = LlmAgent(
     ),
     instruction=_INSTRUCTION,
     tools=[pipeline_tool],
-    before_model_callback=greeting_callback,   # ← greeting (replaces/wraps input_guardrail below)
+    before_model_callback=combined_before_callback,  # ← greeting + guardrail
     after_model_callback=output_guardrail,
 )

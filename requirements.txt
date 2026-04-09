@@ -1,39 +1,84 @@
-# google-adk
-# google-genai
-# httpx
-# beautifulsoup4
-# python-dotenv
+# # # google-adk
+# # # google-genai
+# # # httpx
+# # # beautifulsoup4
+# # # python-dotenv
+# # # google-adk>=0.1.0
+# # # litellm>=1.35.0
+# # # groq>=0.5.0
+# # # tavily-python>=0.3.0
+# # # openpyxl>=3.1.2
+# # # reportlab>=4.1.0
+# # # python-dotenv>=1.0.0
+# # # requests>=2.31.0
+
+# # # Web framework / UI
+# # chainlit>=1.1.0
+
+# # # Google ADK
+# # google-adk>=0.1.0
+# # google-genai
+
+# # # LLM providers
+# # litellm>=1.35.0
+# # groq>=0.5.0
+
+# # # Search & retrieval
+# # tavily-python>=0.3.0
+
+# # # HTTP
+# # httpx
+# # requests>=2.31.0
+# # beautifulsoup4
+
+# # # Output generation
+# # openpyxl>=3.1.2
+# # reportlab>=4.1.0
+
+# # # Utilities
+# # python-dotenv>=1.0.0
+
+# # UI
+# chainlit>=1.1.0
+
+# # Web server
+# uvicorn>=0.29.0
+# fastapi>=0.110.0
+
+# # Google ADK
 # google-adk>=0.1.0
+# google-genai
+
+# # LLM
 # litellm>=1.35.0
 # groq>=0.5.0
+
+# # Search
 # tavily-python>=0.3.0
+
+# # HTTP / scraping
+# httpx
+# requests>=2.31.0
+# beautifulsoup4
+
+# # Output files
 # openpyxl>=3.1.2
 # reportlab>=4.1.0
+
+# # Utilities
 # python-dotenv>=1.0.0
-# requests>=2.31.0
 
-# Web framework / UI
-chainlit>=1.1.0
-
-# Google ADK
-google-adk>=0.1.0
+google-adk
 google-genai
-
-# LLM providers
 litellm>=1.35.0
 groq>=0.5.0
-
-# Search & retrieval
 tavily-python>=0.3.0
-
-# HTTP
 httpx
 requests>=2.31.0
 beautifulsoup4
-
-# Output generation
 openpyxl>=3.1.2
 reportlab>=4.1.0
-
-# Utilities
 python-dotenv>=1.0.0
+uvicorn>=0.29.0
+fastapi>=0.110.0
+aiofiles

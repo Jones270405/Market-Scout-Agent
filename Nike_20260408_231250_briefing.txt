@@ -1,0 +1,64 @@
+
+============================================================
+COMPETITOR BRIEFING: NIKE
+Generated: 2026-04-08 23:12
+Period: Last 7 Days
+============================================================
+
+EXECUTIVE SUMMARY
+─────────────────
+Nike has released 0 new technical updates
+in the last 7 days. 8 total updates tracked
+across the last 365 days.
+
+NEW TECHNICAL FEATURES (Last 7 Days)
+─────────────────────────────────────
+
+No verified features in last 7 days.
+Showing most recent updates:
+
+1. Here's Everything You Need to Know About Nike's 2024/2025 ...
+   Category : Product
+   Published: Fri, 21 Jun 2024 00:00:00 GMT
+   Summary  : Nike’s focus on their ‘Cult Classic’ series has been a welcomed initiative for sneakerheads, and they’re doubling down this year on an array of both OG retros and new colourways arriving for 2024/2025
+   Source   : https://www.sneakerfreaker.com/performance/releases/nike-2024-2025-snkrs-preview-everything-you-need-to-know-price-buy-release-date
+
+2. Nike 2024–2025 Releases Unveiled | SNKRDUNK Magazine
+   Category : Product
+   Published: Fri, 21 Jun 2024 03:52:07 GMT
+   Summary  : The curated selection merely scratches the surface of what the Swoosh has lined up. Although firm release dates weren’t disclosed, they did share which seasons the pairs are projected to arrive.
+   Source   : https://snkrdunk.com/en/magazine/2024/06/21/nike-2024-2025-releases-unveiled/
+
+3. Nike Releases Nike Blueprint Pack, Including Maxfly 2 ...
+   Category : Product
+   Published: Thu, 11 Apr 2024 00:00:00 GMT
+   Summary  : The Nike Blueprint Pack features the best of the company’s Air innovations, including updated spikes for track athletes, the Nike Victory 2 and Nike Maxfly 2; a new basketball shoe, the Nike G.T. Hust
+   Source   : https://about.nike.com/en/newsroom/releases/nike-air-blueprint-pack-official-images
+
+4. NIKE, Inc. Newsroom: Press Releases, Product Announcements and ...
+   Category : Product
+   Published: Thu, 30 Nov 2023 19:16:44 GMT
+   Summary  : Image 1 Image 2 Release Release — March 31, 2026 ### NIKE, Inc. Reports Fiscal 2026 Third Quarter Results March 31, 2026
+   Source   : https://about.nike.com/en/newsroom
+
+5. Nike Search Scraper API: Free Trial - Retailed
+   Category : API
+   Published: unknown
+   Summary  : ## Introducing the Nike Search API
+   Source   : https://www.retailed.io/datasources/api/nike-search
+
+ALL CITATIONS
+─────────────
+1. Here's Everything You Need to Know About Nike's 2024/2025 ... — https://www.sneakerfreaker.com/performance/releases/nike-2024-2025-snkrs-preview-everything-you-need-to-know-price-buy-release-date
+2. Nike 2024–2025 Releases Unveiled | SNKRDUNK Magazine — https://snkrdunk.com/en/magazine/2024/06/21/nike-2024-2025-releases-unveiled/
+3. Nike Releases Nike Blueprint Pack, Including Maxfly 2 ... — https://about.nike.com/en/newsroom/releases/nike-air-blueprint-pack-official-images
+4. NIKE, Inc. Newsroom: Press Releases, Product Announcements and ... — https://about.nike.com/en/newsroom
+5. Nike Search Scraper API: Free Trial - Retailed — https://www.retailed.io/datasources/api/nike-search
+6. Nike To Open First-Ever API To Developers At Backplane's SXSW ... — https://techcrunch.com/2012/03/10/nike-apis-sxsw-backplane/
+7. Path rolls out API, partners with Nike to appeal to runners - CNET — https://www.cnet.com/tech/tech-industry/path-rolls-out-api-partners-with-nike-to-appeal-to-runners/
+8. Nike API - Docs, SDKs & Integration — https://apitracker.io/a/nike
+
+============================================================
+Market Scout v2026.04.08 |
+Google ADK + Groq LLaMA 3.3 + Tavily Search
+============================================================

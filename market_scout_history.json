@@ -333,5 +333,321 @@
       "year": 0,
       "unver": 7
     }
+  },
+  {
+    "company": "Nike",
+    "run_date": "2026-04-08 22:57",
+    "features": [
+      {
+        "feature": "Here's Everything You Need to Know About Nike's 2024/2025 ...",
+        "category": "Product",
+        "date": "Fri, 21 Jun 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.sneakerfreaker.com/performance/releases/nike-2024-2025-snkrs-preview-everything-you-need-to-know-price-buy-release-date",
+        "snippet": "Nike\u2019s focus on their \u2018Cult Classic\u2019 series has been a welcomed initiative for sneakerheads, and they\u2019re doubling down this year on an array of both OG retros and new colourways arriving for 2024/2025. The biggest of the bunch is of course the Air Foamposite One \u2018Galaxy\u2019 retro, which originally rele"
+      },
+      {
+        "feature": "Nike 2024\u20132025 Releases Unveiled | SNKRDUNK Magazine",
+        "category": "Product",
+        "date": "Fri, 21 Jun 2024 03:52:07 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://snkrdunk.com/en/magazine/2024/06/21/nike-2024-2025-releases-unveiled/",
+        "snippet": "The curated selection merely scratches the surface of what the Swoosh has lined up. Although firm release dates weren\u2019t disclosed, they did share which seasons the pairs are projected to arrive."
+      },
+      {
+        "feature": "Nike Releases Nike Blueprint Pack, Including Maxfly 2 ...",
+        "category": "Product",
+        "date": "Thu, 11 Apr 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://about.nike.com/en/newsroom/releases/nike-air-blueprint-pack-official-images",
+        "snippet": "The Nike Blueprint Pack features the best of the company\u2019s Air innovations, including updated spikes for track athletes, the Nike Victory 2 and Nike Maxfly 2; a new basketball shoe, the Nike G.T. Hustle 3; and its most premium boot for footballers to date, the 2024 Nike Mercurial."
+      },
+      {
+        "feature": "NIKE, Inc. Newsroom: Press Releases, Product Announcements and ...",
+        "category": "Product",
+        "date": "Thu, 30 Nov 2023 19:16:44 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://about.nike.com/en/newsroom",
+        "snippet": "Image 1 Image 2 Release Release \u2014 March 31, 2026 ### NIKE, Inc. Reports Fiscal 2026 Third Quarter Results March 31, 2026"
+      },
+      {
+        "feature": "Nike Search Scraper API: Free Trial - Retailed",
+        "category": "API",
+        "date": "unknown",
+        "status": "UNVERIFIED",
+        "url": "https://www.retailed.io/datasources/api/nike-search",
+        "snippet": "## Introducing the Nike Search API"
+      },
+      {
+        "feature": "Nike To Open First-Ever API To Developers At Backplane's SXSW ...",
+        "category": "API",
+        "date": "Sun, 11 Mar 2012 05:11:36 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://techcrunch.com/2012/03/10/nike-apis-sxsw-backplane/",
+        "snippet": "This represents the first time that Nike has released an API of any kind, and naturally the first time it\u2019s made its NikeFuel platform available to developers. So now, developers will be able to hack together apps, platforms, and technologies that can \u201cadvance the future of digital music distributio"
+      },
+      {
+        "feature": "Path rolls out API, partners with Nike to appeal to runners - CNET",
+        "category": "API",
+        "date": "Thu, 08 Mar 2012 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.cnet.com/tech/tech-industry/path-rolls-out-api-partners-with-nike-to-appeal-to-runners/",
+        "snippet": "\"The API is about quality,\" said Morin, explaining why it's launching privately and with a single partner. \"We want to make sure each consumer experience is beautiful and high quality.\""
+      },
+      {
+        "feature": "Nike API - Docs, SDKs & Integration",
+        "category": "API",
+        "date": "unknown",
+        "status": "UNVERIFIED",
+        "url": "https://apitracker.io/a/nike",
+        "snippet": "Disclaimer: We do our best to ensure that the data we release is complete, accurate, and useful. However, because we are not able to verify all the data, and because the processing required to make the data useful is complex, we cannot be held liable for omissions or inaccuracies. [...] API Tracker"
+      }
+    ],
+    "summary": {
+      "total": 8,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 8
+    }
+  },
+  {
+    "company": "Nike",
+    "run_date": "2026-04-08 22:59",
+    "features": [
+      {
+        "feature": "Here's Everything You Need to Know About Nike's 2024/2025 ...",
+        "category": "Product",
+        "date": "Fri, 21 Jun 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.sneakerfreaker.com/performance/releases/nike-2024-2025-snkrs-preview-everything-you-need-to-know-price-buy-release-date",
+        "snippet": "Nike\u2019s focus on their \u2018Cult Classic\u2019 series has been a welcomed initiative for sneakerheads, and they\u2019re doubling down this year on an array of both OG retros and new colourways arriving for 2024/2025. The biggest of the bunch is of course the Air Foamposite One \u2018Galaxy\u2019 retro, which originally rele"
+      },
+      {
+        "feature": "Nike 2024\u20132025 Releases Unveiled | SNKRDUNK Magazine",
+        "category": "Product",
+        "date": "Fri, 21 Jun 2024 03:52:07 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://snkrdunk.com/en/magazine/2024/06/21/nike-2024-2025-releases-unveiled/",
+        "snippet": "The curated selection merely scratches the surface of what the Swoosh has lined up. Although firm release dates weren\u2019t disclosed, they did share which seasons the pairs are projected to arrive."
+      },
+      {
+        "feature": "Nike Releases Nike Blueprint Pack, Including Maxfly 2 ...",
+        "category": "Product",
+        "date": "Thu, 11 Apr 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://about.nike.com/en/newsroom/releases/nike-air-blueprint-pack-official-images",
+        "snippet": "The Nike Blueprint Pack features the best of the company\u2019s Air innovations, including updated spikes for track athletes, the Nike Victory 2 and Nike Maxfly 2; a new basketball shoe, the Nike G.T. Hustle 3; and its most premium boot for footballers to date, the 2024 Nike Mercurial."
+      },
+      {
+        "feature": "NIKE, Inc. Newsroom: Press Releases, Product Announcements and ...",
+        "category": "Product",
+        "date": "Thu, 30 Nov 2023 19:16:44 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://about.nike.com/en/newsroom",
+        "snippet": "Image 1 Image 2 Release Release \u2014 March 31, 2026 ### NIKE, Inc. Reports Fiscal 2026 Third Quarter Results March 31, 2026"
+      },
+      {
+        "feature": "Nike Search Scraper API: Free Trial - Retailed",
+        "category": "API",
+        "date": "unknown",
+        "status": "UNVERIFIED",
+        "url": "https://www.retailed.io/datasources/api/nike-search",
+        "snippet": "## Introducing the Nike Search API"
+      },
+      {
+        "feature": "Nike To Open First-Ever API To Developers At Backplane's SXSW ...",
+        "category": "API",
+        "date": "Sun, 11 Mar 2012 05:11:36 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://techcrunch.com/2012/03/10/nike-apis-sxsw-backplane/",
+        "snippet": "This represents the first time that Nike has released an API of any kind, and naturally the first time it\u2019s made its NikeFuel platform available to developers. So now, developers will be able to hack together apps, platforms, and technologies that can \u201cadvance the future of digital music distributio"
+      },
+      {
+        "feature": "Path rolls out API, partners with Nike to appeal to runners - CNET",
+        "category": "API",
+        "date": "Thu, 08 Mar 2012 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.cnet.com/tech/tech-industry/path-rolls-out-api-partners-with-nike-to-appeal-to-runners/",
+        "snippet": "\"The API is about quality,\" said Morin, explaining why it's launching privately and with a single partner. \"We want to make sure each consumer experience is beautiful and high quality.\""
+      },
+      {
+        "feature": "Nike API - Docs, SDKs & Integration",
+        "category": "API",
+        "date": "unknown",
+        "status": "UNVERIFIED",
+        "url": "https://apitracker.io/a/nike",
+        "snippet": "Disclaimer: We do our best to ensure that the data we release is complete, accurate, and useful. However, because we are not able to verify all the data, and because the processing required to make the data useful is complex, we cannot be held liable for omissions or inaccuracies. [...] API Tracker"
+      }
+    ],
+    "summary": {
+      "total": 8,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 8
+    }
+  },
+  {
+    "company": "Nike",
+    "run_date": "2026-04-08 23:12",
+    "features": [
+      {
+        "feature": "Here's Everything You Need to Know About Nike's 2024/2025 ...",
+        "category": "Product",
+        "date": "Fri, 21 Jun 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.sneakerfreaker.com/performance/releases/nike-2024-2025-snkrs-preview-everything-you-need-to-know-price-buy-release-date",
+        "snippet": "Nike\u2019s focus on their \u2018Cult Classic\u2019 series has been a welcomed initiative for sneakerheads, and they\u2019re doubling down this year on an array of both OG retros and new colourways arriving for 2024/2025. The biggest of the bunch is of course the Air Foamposite One \u2018Galaxy\u2019 retro, which originally rele"
+      },
+      {
+        "feature": "Nike 2024\u20132025 Releases Unveiled | SNKRDUNK Magazine",
+        "category": "Product",
+        "date": "Fri, 21 Jun 2024 03:52:07 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://snkrdunk.com/en/magazine/2024/06/21/nike-2024-2025-releases-unveiled/",
+        "snippet": "The curated selection merely scratches the surface of what the Swoosh has lined up. Although firm release dates weren\u2019t disclosed, they did share which seasons the pairs are projected to arrive."
+      },
+      {
+        "feature": "Nike Releases Nike Blueprint Pack, Including Maxfly 2 ...",
+        "category": "Product",
+        "date": "Thu, 11 Apr 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://about.nike.com/en/newsroom/releases/nike-air-blueprint-pack-official-images",
+        "snippet": "The Nike Blueprint Pack features the best of the company\u2019s Air innovations, including updated spikes for track athletes, the Nike Victory 2 and Nike Maxfly 2; a new basketball shoe, the Nike G.T. Hustle 3; and its most premium boot for footballers to date, the 2024 Nike Mercurial."
+      },
+      {
+        "feature": "NIKE, Inc. Newsroom: Press Releases, Product Announcements and ...",
+        "category": "Product",
+        "date": "Thu, 30 Nov 2023 19:16:44 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://about.nike.com/en/newsroom",
+        "snippet": "Image 1 Image 2 Release Release \u2014 March 31, 2026 ### NIKE, Inc. Reports Fiscal 2026 Third Quarter Results March 31, 2026"
+      },
+      {
+        "feature": "Nike Search Scraper API: Free Trial - Retailed",
+        "category": "API",
+        "date": "unknown",
+        "status": "UNVERIFIED",
+        "url": "https://www.retailed.io/datasources/api/nike-search",
+        "snippet": "## Introducing the Nike Search API"
+      },
+      {
+        "feature": "Nike To Open First-Ever API To Developers At Backplane's SXSW ...",
+        "category": "API",
+        "date": "Sun, 11 Mar 2012 05:11:36 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://techcrunch.com/2012/03/10/nike-apis-sxsw-backplane/",
+        "snippet": "This represents the first time that Nike has released an API of any kind, and naturally the first time it\u2019s made its NikeFuel platform available to developers. So now, developers will be able to hack together apps, platforms, and technologies that can \u201cadvance the future of digital music distributio"
+      },
+      {
+        "feature": "Path rolls out API, partners with Nike to appeal to runners - CNET",
+        "category": "API",
+        "date": "Thu, 08 Mar 2012 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.cnet.com/tech/tech-industry/path-rolls-out-api-partners-with-nike-to-appeal-to-runners/",
+        "snippet": "\"The API is about quality,\" said Morin, explaining why it's launching privately and with a single partner. \"We want to make sure each consumer experience is beautiful and high quality.\""
+      },
+      {
+        "feature": "Nike API - Docs, SDKs & Integration",
+        "category": "API",
+        "date": "unknown",
+        "status": "UNVERIFIED",
+        "url": "https://apitracker.io/a/nike",
+        "snippet": "Disclaimer: We do our best to ensure that the data we release is complete, accurate, and useful. However, because we are not able to verify all the data, and because the processing required to make the data useful is complex, we cannot be held liable for omissions or inaccuracies. [...] API Tracker"
+      }
+    ],
+    "summary": {
+      "total": 8,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 8
+    }
+  },
+  {
+    "company": "Tesla",
+    "run_date": "2026-04-08 23:15",
+    "features": [
+      {
+        "feature": "Tesla Update May 2024. Some very cool new features: update 2024.14.3",
+        "category": "Product",
+        "date": "Thu, 02 May 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.youtube.com/watch?v=osOexsXoWHo",
+        "snippet": "sort of pausing thing um the UI you know what I wasn't sure about it I was I was kind change is very often oh I'm not sure about change I'm you know I I like what I like and I like it to stay the same but I really like this new UI I think it looks fantastic I think functionality you know it it it I"
+      },
+      {
+        "feature": "Tesla Model 3: 2025 Vs. 2024 - What's New?",
+        "category": "Integration",
+        "date": "Mon, 05 Jan 2026 21:08:07 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://giftsandentertainment.roche.com/open-outlook/tesla-model-3-2025-vs-2024-whats-new-1767647287",
+        "snippet": "Tesla is also constantly working on improving its software. The 2025 model could come with the latest version of Tesla\u2019s software, which would include new features, improved performance, and enhanced functionality. They might even add new apps or integration with other services, like enhanced voice"
+      },
+      {
+        "feature": "Exciting New Tesla Updates and Features for 2025: What to Expect - PimpMyEV",
+        "category": "Product",
+        "date": "Mon, 03 Feb 2025 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://pimpmyev.com/blogs/speed-style-carbon-fiber/exciting-new-tesla-updates-and-features-for-2025-what-to-expect?srsltid=AfmBOop8nT6LPfKgExp88B_oThBlsI29sa8l2YAWsjGACqZF8c5Z5DIK",
+        "snippet": "### When Does the New Model Arrive"
+      },
+      {
+        "feature": "Tesla's latest software has some great new features",
+        "category": "Product",
+        "date": "Mon, 09 Dec 2024 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.reddit.com/r/electricvehicles/comments/1hafpa4/teslas_latest_software_has_some_great_new/",
+        "snippet": "Tesla\u2019s latest software has some great new features - Dec 2024 v 2024.44.25.2 : r/electricvehicles"
+      },
+      {
+        "feature": "Tesla ships out update that brings massive change to two big features",
+        "category": "Product",
+        "date": "Thu, 05 Mar 2026 16:34:14 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://www.teslarati.com/tesla-ships-out-update-everyone-that-california-caused/",
+        "snippet": "Upgraded the Reinforcement Learning (RL) stage of training the FSD neural network, resulting in improvements in a wide variety of driving scenarios."
+      },
+      {
+        "feature": "Tesla: Current and upcoming models, prices, specs, and more",
+        "category": "Product",
+        "date": "Fri, 27 Jun 2025 07:13:29 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://electrek.co/guides/tesla/",
+        "snippet": "The update, shipping as software version 2026.2.9.6, also brings a new parking spot pin on the map, better behavior around emergency vehicles and school buses, and Tesla\u2019s first public acknowledgement that it\u2019s leaning on MLIR \u2014 the compiler infrastructure built by Chris Lattner, who briefly led Tes"
+      },
+      {
+        "feature": "Tesla launches official API documentation to support third-party apps",
+        "category": "API",
+        "date": "Mon, 16 Oct 2023 00:00:00 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://m.economictimes.com/tech/technology/tesla-launches-official-api-documentation-to-support-3rd-party-apps/articleshow/104464861.cms",
+        "snippet": "Electric car company Tesla has released official application programming interface (API) documentation to support third-party apps."
+      },
+      {
+        "feature": "Tesla releases API for solar, Powerwall, EV charger",
+        "category": "API",
+        "date": "Fri, 05 Jan 2024 18:55:26 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://pv-magazine-usa.com/2024/01/05/tesla-releases-api-for-solar-powerwall-ev-charger/",
+        "snippet": "The EV and home solar provider released an API in October for electric vehicle fleet management. Now, its API supports coordination of distributed energy assets."
+      },
+      {
+        "feature": "Tesla releases official API documentation to support third-party apps | Electrek",
+        "category": "API",
+        "date": "Thu, 12 Oct 2023 12:42:46 GMT",
+        "status": "UNVERIFIED",
+        "url": "https://electrek.co/2023/10/12/tesla-releases-official-api-documentation-support-third-party-apps/",
+        "snippet": "The automaker has now officially released API documentation \u2013 marking an important step toward creating a healthier third-party app community."
+      }
+    ],
+    "summary": {
+      "total": 9,
+      "week": 0,
+      "month": 0,
+      "year": 0,
+      "unver": 9
+    }
   }
 ]
